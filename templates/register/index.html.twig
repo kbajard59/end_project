@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Burger Queen{% endblock %}
+
+{% block content %}
+<h1>Inscription</h1>
+    {% if notification %}
+    <p class="alert alert-info">{{ notification }}</p>
+    {% endif %}
+    {{ form(form) }}
+{% endblock %}
