@@ -54,10 +54,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Nos produits</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Qui sommes-nous ?</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
             </ul>
             <div class="navbar-item-custom">
                 {% if app.user %}
-                    <a href="#">Mon compte ({{ app.user.firstname }})</a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    <a href="{{ path('account') }}">Mon compte <small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
                     <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
                 {% endif %}
