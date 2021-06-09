@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 class RegisterController extends AbstractController
@@ -21,7 +22,7 @@ class RegisterController extends AbstractController
     /**
      * @Route("/inscription", name="register")
      */
-    public function index(Request $request, UserPasswordHasherInterface $encoder)
+    public function index(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $notification = null;
         $user = new User();
@@ -35,7 +36,7 @@ class RegisterController extends AbstractController
             $search_mail = $this->entityManager->getRepository(User::class)->findOneByEmail($user->getEmail());
 
             if(!$search_mail){
-                $password = $encoder->hashPassword($user,$user->getPassword());
+                $password = $encoder->encodePassword($user,$user->getPassword());
                 $user->setPassword($password);
 
                 $this->entityManager->persist($user);

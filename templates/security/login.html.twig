@@ -17,8 +17,8 @@
     <h1 class="h3 mb-3 font-weight-normal">Merci de vous connectez</h1>
     <label for="inputEmail">Votre email</label>
     <input type="email" value="{{ last_username }}" placeholder="Merci de saisir votre email" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Votre mot de passe</label>
-    <input type="password" placeholder="Merci de saison votre mot de passe" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <label class="mt-2" for="inputPassword">Votre mot de passe</label>
+    <input type="password" placeholder="Merci de saisir votre mot de passe" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
