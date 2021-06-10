@@ -63,6 +63,11 @@ class Address
      */
     private $postal;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $address;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +177,18 @@ class Address
     public function setPostal(string $postal): self
     {
         $this->postal = $postal;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
 
         return $this;
     }
