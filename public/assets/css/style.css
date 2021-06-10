@@ -96,3 +96,7 @@ a{
     color: #778ca3;
     text-decoration: none;
 }
+
+.product-item a>img{
+    max-height:300px
+}
