@@ -7,6 +7,6 @@
     {% if product.category.name == 'Menus' %}
         <a href="" class="btn btn-primary">Composer</a>
     {% else %}
-    <a href="" class="btn btn-primary">Ajouter</a>
+    <a href="{{ path('add_to_cart',{'id' :product.id }) }}" class="btn btn-primary">Ajouter</a>
     {% endif %}
 </div>
