@@ -3,7 +3,7 @@
 {% block title %}{{ product.name }} - Burger Queen{% endblock %}
 
 {% block content %}
-    <a href="{{ path('cart') }}">Afficher tous les produits</a>
+    <a href="{{ path('products') }}">Afficher tous les produits</a>
     <hr>
     <div class="row">
         <div class="col-md-5">
@@ -19,5 +19,16 @@
             <a href="{{ path('add_to_cart',{'id' :product.id }) }}" class="btn btn-primary">Ajouter au panier</a>
         </div>
     </div>
-
+    <hr>
+<h3>Ces produits peuvent vous intéresser !</h3>
+<div class="row">
+    {% set slug = product.slug %}
+    {% for product in products %}
+        {% if product.slug != slug%}
+        <div class="col-md-4">
+            {% include 'product/single_product.html.twig' %}
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
 {% endblock %}
