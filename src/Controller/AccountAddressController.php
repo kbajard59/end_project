@@ -43,8 +43,8 @@ class AccountAddressController extends AbstractController
             $this->entityManager->persist($address);
             $this->entityManager->flush();
             if($cart->get()){
-                /*return $this->redirectToRoute('order');
-            }else{*/
+                return $this->redirectToRoute('order');
+            }else{
                 return $this->redirectToRoute('account_address');
             }
         }

@@ -32,6 +32,14 @@ class Delivery
      */
     private $price;
 
+    public function __toString(){
+        if($this->getPrice() > 0){
+        return $this->getName().'[br]'.$this->getdescription().'[br]'.number_format(($this->getPrice()/100),2,',',',').' €';
+        }else{
+            return $this->getName();
+        }
+    }
+
     public function getId(): ?int
     {
         return $this->id;
