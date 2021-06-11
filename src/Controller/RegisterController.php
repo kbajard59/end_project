@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -41,7 +41,10 @@ class RegisterController extends AbstractController
 
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-                //TODO : quand la classe mail sera en place, envoyer un mail ici
+                //Envoi du mail
+                $mail = new Mail();
+                $content = "Bonjour ".$user->getFirstName().",<br/>Bienvenue sur Burger Queen.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae error esse id molestiae odio provident quasi quisquam quos, reiciendis saepe!";
+                $mail->send($user->getEmail(),$user->getFirstName(),'Bienvenue sur La Boutique Française',$content);
                 $notification = "Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connectez à votre compte.";
             }else{
                 $notification = "L'email que vous avez renseigné existe déjà.";

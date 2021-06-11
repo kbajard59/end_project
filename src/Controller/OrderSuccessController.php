@@ -36,10 +36,10 @@ class OrderSuccessController extends AbstractController
             $order->setState(1);
             $this->entityManager->flush();
 
-            //TODO Envoi du mail
-            /*$mail = new Mail();
+            //Envoi du mail
+            $mail = new Mail();
             $content = "Bonjour ".$order->getUser()->getFirstName().",<br/>Merci pour votre commande.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae error esse id molestiae odio provident quasi quisquam quos, reiciendis saepe!";
-            $mail->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande La Boutique Française est bien validée',$content);*/
+            $mail->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande sur Burger Queen est validée',$content);
         }
 
         return $this->render('order_success/index.html.twig',[
