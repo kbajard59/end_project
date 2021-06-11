@@ -25,8 +25,8 @@
                 <div class="form-check">
                     {{ carrier.name }}<br/>
                     {% if carrier.price > 0  %}
-                    <i>{{ carrier.description }}</i><br/>
-                    {{ (carrier.price/100)|number_format(2,',') }} €
+                        <i>{{ carrier.description }}</i><br/>
+                        {{ (carrier.price/100)|number_format(2,',') }} €
                     {% endif %}
                 </div>
             </div>
@@ -66,11 +66,11 @@
     </div>
 {% endblock %}
 
-{#
+
 {% block script %}
     <script type="text/javascript">
         // Create an instance of the Stripe object with your publishable API key
-        var stripe = Stripe("pk_test_51IxHydJxv3iM3SoRieM81rVrlCsvSGnynfFvWAjMi6lheQ3UB6jOpt7LD75EVbJE4xaJroZiIUvduA50guhTWZtZ00Za7mnzvf");
+        var stripe = Stripe("pk_test_51J0yUlD2cnfUxEJ7UMCgEBB0NYr6czP2VlQIm5wwyBXuEVlIz7wdk6MEPsNLgATy2aOzJR9M75wcFClnb21igYve00PTTeYyIi");
         var checkoutButton = document.getElementById("checkout-button");
 
         checkoutButton.addEventListener("click", function () {
@@ -100,4 +100,4 @@
                 });
         });
     </script>
-{% endblock %}#}
+{% endblock %}

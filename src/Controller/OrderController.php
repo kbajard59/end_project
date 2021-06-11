@@ -73,15 +73,14 @@ class OrderController extends AbstractController
 
             //enregistrer mes commandes Order()
             $order = new Order();
-            /*$reference = $date->format('dmY').'-'.uniqid();
-            $order->setReference($reference);*/
+            $reference = $date->format('dmY').'-'.uniqid();
+            $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
             $order->setDeliveryName($delivery_mode->getName());
             $order->setDeliveryPrice($delivery_mode->getPrice());
             $order->setDeliveryAddress($delivery_content);
-            $order->setIsPaid(0);
-            /*$order->setState(0);*/
+            $order->setState(0);
 
             $this->entityManager->persist($order);
 
@@ -93,7 +92,7 @@ class OrderController extends AbstractController
                 $orderDetails->setProduct($p['product']->getName());
                 $orderDetails->setQuantity($p['quantity']);
                 $orderDetails->setPrice($p['product']->getPrice());
-                $orderDetails->settotal($p['product']->getPrice() * $p['quantity']);
+                $orderDetails->setTotal($p['product']->getPrice() * $p['quantity']);
                 $this->entityManager->persist($orderDetails);
             }
 
@@ -103,8 +102,8 @@ class OrderController extends AbstractController
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
                 'carrier' =>$delivery_mode,
-                'delivery' =>$delivery_content/*,
-                'reference' =>$order->getReference()*/
+                'delivery' =>$delivery_content,
+                'reference' =>$order->getReference()
             ]);
         }
 
