@@ -5,8 +5,8 @@
     <h5>{{ product.name }}</h5>
     <span class="product-price">{{ (product.price/100) |number_format(2,',')}} €</span><br/>
     {% if product.category.name == 'Menus' %}
-        <a href="" class="btn btn-primary">Composer</a>
+        <a href="" class="btn btn-danger">Composer</a>
     {% else %}
-    <a href="{{ path('add_to_cart',{'id' :product.id }) }}" class="btn btn-primary">Ajouter</a>
+    <a href="{{ path('add_to_cart',{'id' :product.id }) }}" class="btn btn-danger">Ajouter</a>
     {% endif %}
 </div>
