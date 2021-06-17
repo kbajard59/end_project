@@ -20,7 +20,7 @@ class StripeController extends AbstractController
      */
     public function index(EntityManagerInterface $entityManager, $reference): Response
     {
-        $YOUR_DOMAIN = 'https://burger-queen-kb.herokuapp.com/';
+        $YOUR_DOMAIN = 'https://burger-queen-kb.herokuapp.com';
         $product_for_stripe=[];
 
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
