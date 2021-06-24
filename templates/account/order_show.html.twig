@@ -31,7 +31,7 @@
         <tbody>
         {% for product in order.orderDetails %}
             <tr>
-                <td>>{{ product.product }}</td>
+                <td>{{ product.product }}</td>
                 <td>x{{ product.quantity }}</td>
                 <td>{{ (product.price/100)|number_format(2,',','.') }} €</td>
                 <td>{{ (product.total/100)|number_format(2,',','.') }} €</td>
