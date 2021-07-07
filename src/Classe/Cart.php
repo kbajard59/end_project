@@ -24,7 +24,7 @@ class Cart
         if(!empty($cart[$id])){ // Si le produit ajouté n'est pas déjà présent dans le panier
             $cart[$id]++; // Pour ajouter 1 à la quantité
         }else{
-            $cart[$id] = 1; // Sinon on l'initialiser à 1
+            $cart[$id] = 1; // Sinon on l'initialise à 1
         }
 
         $this->session->set('cart',$cart);

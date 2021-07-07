@@ -13,6 +13,10 @@ main{
     position:relative;
 }
 
+.marketing{
+    min-height: 73vh;
+}
+
 .footer-custom{
     text-align:center;
     bottom:0;
