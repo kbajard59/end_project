@@ -29,7 +29,7 @@ class ProductCrudController extends AbstractCrudController
             ImageField::new('illustration','Image')
                 ->setBasePath('uploads/')
                 ->setUploadDir('public/uploads')
-                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setUploadedFileNamePattern('[year][month][day][timestamp].[extension]')
                 ->setRequired(false),
             TextareaField::new('description','Description'),
             BooleanField::new('isBest',),
